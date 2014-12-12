@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+   <FileVersion major="1" minor="6" />
+   <Project>
+      <Option title="PumaClient" />
+      <Option makefile_is_custom="1" />
+      <Option compiler="gcc" />
+      <Option virtualFolders="CMake Files\;" />
+      <Build>
+      <Target title="all">
+         <Option working_dir="/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/qt-build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/qt-build/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/qt-build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/qt-build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/qt-build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="PumaClient">
+         <Option output="/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/qt-build/PumaClient" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/qt-build" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/Robot" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/4.8" />
+            <Add directory="/usr/include/c++/4.8/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/4.8" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/qt-build/Makefile&quot;  VERBOSE=1 PumaClient" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/qt-build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/qt-build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/qt-build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="PumaClient/fast">
+         <Option output="/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/qt-build/PumaClient" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/qt-build" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/Robot" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/4.8" />
+            <Add directory="/usr/include/c++/4.8/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/4.8" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/qt-build/Makefile&quot;  VERBOSE=1 PumaClient/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/qt-build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/qt-build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/qt-build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rebuild_cache">
+         <Option working_dir="/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/qt-build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/qt-build/Makefile&quot;  VERBOSE=1 rebuild_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/qt-build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/qt-build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/qt-build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      </Build>
+      <Unit filename="/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/PumaClient.cpp">
+      </Unit>
+      <Unit filename="/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/Robot/RobotCom.cpp">
+      </Unit>
+      <Unit filename="/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/Robot/unitMsg.cpp">
+      </Unit>
+      <Unit filename="/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/Robot/RobotCom.h">
+      </Unit>
+      <Unit filename="/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/Robot/cs225.h">
+      </Unit>
+      <Unit filename="/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/Robot/unitMsg.h">
+      </Unit>
+      <Unit filename="/home/brian/Dropbox/Shared/CS225a/linux_simple_client_2014/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+   </Project>
+</CodeBlocks_project_file>

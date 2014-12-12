@@ -1,0 +1,270 @@
+// PumaClient.cpp : Defines the entry point for the console application.
+//
+
+#ifdef WIN32
+#pragma once
+#endif
+
+#include "RobotCom.h"
+
+/*
+//scl lib
+#include <scl/DataTypes.hpp>
+#include <scl/data_structs/SGcModel.hpp>
+#include <scl/dynamics/scl/CDynamicsScl.hpp>
+#include <scl/dynamics/tao/CDynamicsTao.hpp>
+#include <scl/parser/sclparser/CParserScl.hpp>
+#include <scl/graphics/chai/CGraphicsChai.hpp>
+#include <scl/graphics/chai/ChaiGlutHandlers.hpp>
+#include <scl/util/DatabaseUtils.hpp>
+
+//#include "chai3d.h"
+
+//For timing
+#include <sutil/CSystemClock.hpp>
+
+//Eigen 3rd party lib
+#include <Eigen/Dense>
+*/
+//Standard includes (for printing and multi-threading)
+#include <iostream>
+#include <omp.h>
+
+//Free glut windowing environment
+#include <GL/freeglut.h>
+#include <math.h>
+
+// Computer Vision
+#include "../Kinect/ball_tracking.hpp"
+
+using namespace std;
+#define DOF 6
+#define QREACHEDTOL 10 // fine tune this parameter
+#define XREACHEDTOL 10 //fine tune this parameter
+#define QREACHEDITER 100 // fine tune this parameter
+
+bool posReached_joint(float *qd, float *q)
+{
+	float qTolerance = 0;
+	static int reachedCntr = 0;
+	for(int i = 0; i < DOF; i ++)
+	{
+		qTolerance += (qd[i]-q[i])*(qd[i]-q[i]);
+	}
+	if(qTolerance < QREACHEDTOL)
+		reachedCntr ++;
+	else
+		reachedCntr = 0;
+
+	if(reachedCntr >= QREACHEDITER)
+	{
+		reachedCntr = 0;
+		return true;
+	}
+	return false;
+}
+
+bool posReached_OP(float *xd, float *x)
+{
+	float xTolerance = 0;
+	static int reachedCntr = 0;
+	for(int i = 0; i < DOF; i ++)
+	{
+		xTolerance += (xd[i]-x[i])*(xd[i]-x[i]);
+	}
+	if(xTolerance < XREACHEDTOL)
+		reachedCntr ++;
+	else
+		reachedCntr = 0;
+
+	if(reachedCntr >= QREACHEDITER)
+	{
+		reachedCntr = 0;
+		return true;
+	}
+	return false;
+}
+
+// Move to joint position via jgoto
+void MoveJGOTO(RobotCom *Robot, float *qd, float *q, float *dq)
+{
+	// Output the joint command
+	Robot->jointControl(JGOTO, qd[0], qd[1], qd[2], qd[3], qd[4], qd[5]);
+
+	// Wait for the robot to finish motion
+	do
+	{
+		Robot->getStatus(GET_JPOS,q);
+		Robot->getStatus(GET_JPOS,dq);
+	}while(!posReached_joint(qd,q));
+}
+
+// Move to joint position via goto
+void Move_GOTO(RobotCom *Robot, float *xd, float *x, float *dx)
+{
+	// Output the joint command
+	Robot->control(GOTO, xd, 7);
+
+	// Wait for the robot to finish motion
+	do
+	{
+		Robot->getStatus(GET_IPOS,x);
+		Robot->getStatus(GET_IPOS,dx);
+	}while(!posReached_OP(xd,x));
+}
+
+void Move_GOTO_fast(RobotCom *Robot, float *xd)
+{
+	// Output the joint command
+	Robot->control(GOTO, xd, 7);
+}
+
+int main(int argc, const char* argv[])
+{
+
+	//# of threads.
+	omp_set_num_threads(2);
+
+	int thread_id;
+
+	BallTracker ball("Green");
+
+#pragma omp parallel private(thread_id)
+    {
+	thread_id = omp_get_thread_num();
+	if(thread_id==1)
+	{
+		// Start Tracking ball with Computer Vision
+		ball.run();
+	}
+	else  //Start Puma Client
+	{
+		// declarations
+		RobotCom* PumaRobot = new RobotCom();
+		float q_desired_[DOF] = {0,0,0,0,0,0}; // in degrees
+		float dq_[DOF], q_[DOF];
+		char key = 'a';
+		// float the robot right after connection is established
+		PumaRobot->_float();
+		cout << "Float..." << endl;
+		cout << "Disengage E-stop and hit 's'" << endl;
+		while(1)
+		{
+			cin >> key;
+			if(key == 's')
+				break;
+		}
+		cout << "Disengaged..." << endl;
+		cout << "Starting tasks..." << endl;
+		// start tasks
+		while(1)
+		{
+			/********************************************************/
+			// first motion
+			/********************************************************/
+			q_desired_[2] = 30;
+			q_desired_[3] = 10;
+			q_desired_[4] = 15;
+			MoveJGOTO(PumaRobot,q_desired_,q_,dq_);
+			cout << "Motion 1 done" << endl;
+			/********************************************************/
+			// second motion
+			/********************************************************/
+			q_desired_[2] = 50;
+			q_desired_[3] = 0;
+			q_desired_[4] = 45;
+			q_desired_[5] = 0;
+			MoveJGOTO(PumaRobot,q_desired_,q_,dq_);
+			cout << "Motion 2 done" << endl;
+			break;
+		}
+
+		/********************************************************/
+		// Start Doing our project
+		/********************************************************/
+		cout << "Start Doing our project 'd'o" << endl;
+		while(1)
+		{
+			cin >> key;
+			if(key == 'd')
+				break;
+		}
+
+		float dx_I[7], x_I[7];
+		float x_global[7] = {0.91, 0.15, 0.3, 0.65, -0.19, 0.71, -0.18};
+		Move_GOTO(PumaRobot, x_global, x_I, dx_I);
+
+		//Moving up in order to prepare for juggling the ball.
+		x_global[2] = 0.30;
+		Move_GOTO(PumaRobot, x_global, x_I, dx_I);
+
+		cout << "Choose the mode : 1. manually 'm' 2. automatically 'a' hitting the ball" << endl;
+		cin >> key;
+
+		if(key == 'm'){
+			while(1){
+				cout << "Start Hitting the ball : 'u'p" << endl;
+				cin >> key;
+				if(key == 'u'){
+					cout << "Move up" << endl;
+					x_global[2] = 0.20;
+					Move_GOTO(PumaRobot, x_global, x_I, dx_I);
+				}
+				if(key == 'd'){
+					cout << "Move down" << endl;
+					x_global[2] = 0.10;
+					Move_GOTO(PumaRobot, x_global, x_I, dx_I);
+				}
+				if(key == 'q'){
+					cout << "Stop Doing our project 'q'uit" << endl;
+					break;
+				}
+				if(key == 'a'){
+					key = 'a';
+					break;
+				}
+			}
+		}
+
+		if(key == 'a'){
+			int i = 0;
+			x_global[2] = 0.05;
+			Move_GOTO(PumaRobot, x_global, x_I, dx_I);
+			cout << "put the ping pong ball and press 'k' " << endl;
+			cin >> key;
+
+			if(key == 'k'){
+				x_global[2] = 0.05;
+				Move_GOTO_fast(PumaRobot, x_global);
+				cout << "start hitting the ping pong ball " << endl;
+
+				while(1){
+					if(i == 20) break;
+
+					sleep(200);
+
+					x_global[2] = 0.20;
+					Move_GOTO_fast(PumaRobot, x_global);
+
+					sleep(100);
+
+					x_global[2] = 0.02;
+					Move_GOTO_fast(PumaRobot, x_global);
+
+					i++;
+				}
+			}
+		}
+
+
+		// float the before disconnecting
+		PumaRobot->_float();
+
+		//Disconnect Robot
+
+		//Sleep(2000);
+		//PumaRobot->~RobotCom();
+	}
+	}
+	return 0;
+}

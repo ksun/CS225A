@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PumaClient", "PumaClient.vcxproj", "{F31DC5FF-1735-42D0-8944-D17AE576E013}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F31DC5FF-1735-42D0-8944-D17AE576E013}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F31DC5FF-1735-42D0-8944-D17AE576E013}.Debug|Win32.Build.0 = Debug|Win32
+		{F31DC5FF-1735-42D0-8944-D17AE576E013}.Release|Win32.ActiveCfg = Release|Win32
+		{F31DC5FF-1735-42D0-8944-D17AE576E013}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

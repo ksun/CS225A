@@ -1,0 +1,1 @@
+/usr/bin/c++    -std=c++0x -O3 -DNDEBUG    CMakeFiles/PumaClient.dir/PumaClient.cpp.o CMakeFiles/PumaClient.dir/Robot/RobotCom.cpp.o CMakeFiles/PumaClient.dir/Robot/unitMsg.cpp.o  -o PumaClient -rdynamic 

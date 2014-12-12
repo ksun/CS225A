@@ -1,0 +1,138 @@
+﻿<Window x:Class="KinectDepthSmoothing.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Kinect Depth Smoothing" 
+        Height="600" Width="800" 
+        Loaded="Window_Loaded" 
+        Closing="Window_Closing">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="200"/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Text="Raw Depth Image"
+                   Grid.Column="0"
+                   Grid.Row="0"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontWeight="Bold"
+                   FontSize="20"/>
+
+        <Image Name="ImageRaw"
+               Grid.Row="1"
+               Grid.Column="0"
+               RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <ScaleTransform ScaleX="-1"/>
+            </Image.RenderTransform>
+        </Image>
+
+        <TextBlock Text="Smooth Depth Image"
+                   Grid.Column="1"
+                   Grid.Row="0"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontWeight="Bold"
+                   FontSize="20"/>
+
+        <Image Name="ImageSmooth"
+               Grid.Row="1"
+               Grid.Column="1"
+               RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <ScaleTransform ScaleX="-1"/>
+            </Image.RenderTransform>
+        </Image>
+
+        <StackPanel Grid.Column="0" Grid.Row="2">
+            <TextBlock Name="TextblockFps" 
+                       HorizontalAlignment="Center" 
+                       FontSize="30" 
+                       Margin="0,60,0,0"/>
+            <TextBlock Text="FPS"
+                       HorizontalAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="2">
+            <CheckBox Name="CheckboxUseFiltering"
+                      IsChecked="True"
+                      Content="Use Filtering" 
+                      FontWeight="Bold"
+                      Checked="CheckboxUseFiltering_Checked" 
+                      Unchecked="CheckboxUseFiltering_Checked" />
+            
+            <TextBlock 
+                Text="Inner Band Threshold: (lower numbers are smoother)" 
+                Margin="5,0,0,0"
+                Visibility="{Binding ElementName=CheckboxUseFiltering, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+            
+            <Slider Name="SliderInnerBand"
+                    Value="2"
+                    Interval="1"
+                    Minimum="1"
+                    Maximum="8" 
+                    IsSnapToTickEnabled="True"
+                    ValueChanged="SliderInnerBand_ValueChanged" 
+                    Visibility="{Binding ElementName=CheckboxUseFiltering, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+            
+            <TextBlock 
+                Text="{Binding ElementName=SliderInnerBand, Path=Value}" 
+                HorizontalAlignment="Center"
+                Visibility="{Binding ElementName=CheckboxUseFiltering, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+            
+            <TextBlock 
+                Text="Outer Band Threshold: (lower numbers are smoother)" 
+                Margin="5,0,0,0"
+                Visibility="{Binding ElementName=CheckboxUseFiltering, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+            
+            <Slider Name="SliderOuterBand"
+                    Value="5"
+                    Interval="1"
+                    Minimum="1"
+                    Maximum="16" 
+                    IsSnapToTickEnabled="True"
+                    ValueChanged="SliderOuterBand_ValueChanged"
+                    Visibility="{Binding ElementName=CheckboxUseFiltering, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+            
+            <TextBlock 
+                Text="{Binding ElementName=SliderOuterBand, Path=Value}" 
+                HorizontalAlignment="Center"
+                Visibility="{Binding ElementName=CheckboxUseFiltering, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+            
+            <CheckBox Name="CheckboxUseAverage"
+                      IsChecked="True"
+                      FontWeight="Bold"
+                      Content="Use Weighted Moving Average" 
+                      Checked="CheckboxUseAverage_Checked" 
+                      Unchecked="CheckboxUseAverage_Checked" />
+            
+            <TextBlock 
+                Text="Number of frames to average:" 
+                Margin="5,0,0,0"
+                Visibility="{Binding ElementName=CheckboxUseAverage, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+            
+            <Slider Name="SliderAverage"
+                    Value="4"
+                    Interval="1"
+                    Minimum="2"
+                    Maximum="12"
+                    IsSnapToTickEnabled="True"
+                    Visibility="{Binding ElementName=CheckboxUseAverage, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}" ValueChanged="SliderAverage_ValueChanged" />
+            
+            <TextBlock 
+                Text="{Binding ElementName=SliderAverage, Path=Value}" 
+                HorizontalAlignment="Center" 
+                Visibility="{Binding ElementName=CheckboxUseAverage, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+            
+        </StackPanel>
+    </Grid>
+</Window>

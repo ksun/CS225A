@@ -1,0 +1,2 @@
+/usr/bin/ar cr libBallTracker.a  CMakeFiles/BallTracker.dir/ball_tracking.cpp.o
+/usr/bin/ranlib libBallTracker.a

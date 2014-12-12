@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="PumaClient">
+</Property><Property Name="Solution File" Value="C:\Users\Xiyang\Desktop\simple_client_2011\simple_client_2011\PumaClient.sln">
+</Property><Property Name="User Options File" Value="C:\Users\Xiyang\Desktop\simple_client_2011\simple_client_2011\PumaClient.suo">
+</Property><Property Name="Date" Value="Saturday, May 07, 2011">
+</Property><Property Name="Time" Value="15:26 PM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="PumaClient.sln" Description="File successfully backed up as C:\Users\Xiyang\Desktop\simple_client_2011\simple_client_2011\PumaClient.sln.old">
+</Event><Event ErrorLevel="0" Project="" Source="PumaClient.suo" Description="File successfully backed up as C:\Users\Xiyang\Desktop\simple_client_2011\simple_client_2011\PumaClient.suo.old">
+</Event><Event ErrorLevel="0" Project="PumaClient" Source="PumaClient.vcproj" Description="Converting project file 'C:\Users\Xiyang\Desktop\simple_client_2011\simple_client_2011\PumaClient.vcproj'.">
+</Event><Event ErrorLevel="1" Project="PumaClient" Source="PumaClient.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="1" Project="PumaClient" Source="PumaClient.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="PumaClient" Source="PumaClient.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="0" Project="PumaClient" Source="PumaClient.vcproj" Description="Done converting to new project file 'C:\Users\Xiyang\Desktop\simple_client_2011\simple_client_2011\PumaClient.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="PumaClient" Source="PumaClient.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="PumaClient.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="PumaClient.sln" Description="Converted">
+</Event></UpgradeLog>
