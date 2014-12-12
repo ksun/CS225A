@@ -1,2 +1,0 @@
-/home/kathy/Documents/scl-manips-v2.git/workspace/Kinect/build/CMakeFiles/BallTracker.dir
-/home/kathy/Documents/scl-manips-v2.git/workspace/Kinect/build/CMakeFiles/ball_tracking_class.dir

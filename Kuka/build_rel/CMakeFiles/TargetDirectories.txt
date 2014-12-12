@@ -1,1 +1,0 @@
-/home/kathy/Documents/scl-manips-v2.git/workspace/Kuka/build_rel/CMakeFiles/scl_tutorial4_control_gc_op.dir
