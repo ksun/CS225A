@@ -1,2 +1,0 @@
-/usr/bin/ar cr libCvPlot.a  CMakeFiles/CvPlot.dir/cvplot.cpp.o
-/usr/bin/ranlib libCvPlot.a
