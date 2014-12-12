@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CS225A Balls of Fury</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="samir, brian" >
+
+	
+	<link href="http://cs.stanford.edu/groups/manips/teaching/cs225a/css/bootstrap.min.css" rel="stylesheet">
+	<link href="http://cs.stanford.edu/groups/manips/teaching/cs225a/css/style.css" rel="stylesheet">
+
+ 
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/scripts.js"></script>
+</head>
+
+<body>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+
+			<!-- CS225A WEBSITE HEADER START -->
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="navbar-header">
+					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> 
+					 <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span>
+					 <span class="icon-bar"></span>
+					 <span class="icon-bar"></span>
+					 </button> 
+					 <a class="navbar-brand" >CS225A</a>
+				</div>
+				
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active">
+							<a href="./index.html">Home</a>
+						</li>
+						<li>
+							<a href="./projects.html">Projects</a>
+						</li>
+						<li>
+							<a href="http://web.stanford.edu/~smenon/scl.html" target="_blank">Control & Simulation</a>
+						</li>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="http://piazza.com/stanford/fall2014/cs225a" target="_blank">Piazza</a>
+						</li>
+						<li>
+							<a href="http://cs.stanford.edu/groups/manips/" target="_blank">Stanford Robotics</a>
+						</li>
+					</ul>
+				</div>
+				
+			</nav>
+			<!-- CS225A WEBSITE HEADER END -->
+
+			<!-- PERSONALIZED HEADER PICTURES -->
+			<div class="carousel slide" id="carousel-25687">
+				<ol class="carousel-indicators">
+					<!-- MY FIRST COOL WHITE DOT FOR FIRST PICTURE -->
+					<li class="active" data-slide-to="0" data-target="#carousel-25687">
+					</li>
+					<!-- MY SECOND COOL WHITE DOT FOR SECOND PICTURE -->
+					<li data-slide-to="1" data-target="#carousel-25687">
+					</li>
+					<!-- MOAR COOL WHITE DOTS -->
+					<!-- EVEN MOAR COOL WHITE DOTS -->				
+				</ol>
+				<div class="carousel-inner">
+					<!--FIRST PICTURE-->
+					<div class="item active"> 
+						<img alt="" src="./pictures/key_art_balls_of_fury.jpg" width="100%">
+						<div class="carousel-caption">
+							<h3>
+								Group 1
+							</h3>
+						</div>
+					</div>
+					 <!--SECOND PICTURE END-->
+					<div class="item">
+						<img alt="" src="./pictures/project.png" height="100%">
+						<div class="carousel-caption">
+							<h3>
+								Can you teach an old robot new tricks?
+							</h3>
+						</div>
+					</div>
+					<!-- MOAR PICTURE ENTRIES -->
+					<!-- EVEN MOAR PICTURE ENTRIES -->
+				</div> <a class="left carousel-control" href="#carousel-25687" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-25687" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+			</div>
+
+			<!-- ABSTRACT -->
+			<div class="row clearfix">
+				<h2> Balls of Fury, Fall 2014</h2>
+				<h3> Abstract</h3>
+				<p>
+					We would like to control the KUKA or Puma to do ping pong tricks, such as bouncing a ball up an down on the paddle. We plan to use the Kinect for optical sensing / Motion Tracking System in order to get the position of the ping pong ball and predict its trajectory.
+					 Our goal is to keep the ball in the air for as long as possible. 
+					 <p>
+					 In the project, we begin with using SCL to do simulation, for example, writing the equtions for both position and orientation controls, combinning simulation on SCL with computer vision, and writing our control logic based the referred papers. In experiment, we use Puma, which is combined with motion tracking system to track ping pong ball.
+					</p>
+				</p>
+			</div>
+			
+			<div class="hrline"> <hr /> </div> 
+
+			<!-- TEAM MEMBERS -->
+			<div class="row clearfix">
+				<h3> Members </h3>	
+				<div class="row clearfix">
+					<div class="col-md-2 column">
+						<h4> Pei Chen Wu </h4>
+						<p>
+							<a href="http://en.wikipedia.org/wiki/Velma_Dinkley" target="_blank">
+								<img alt="" src="./pictures/10015159_10201528746235837_1547854260_n.jpg" height="150" >
+							</a> 
+						</p>
+					</div>
+					<div class="col-md-3 column">
+						<h4> Jacob Suchoski </h4>
+						<p>
+							<a href="http://en.wikipedia.org/wiki/Scooby-Doo_(character)" target="_blank">
+								<img alt="" src="./pictures/kinect.png" height="100">
+							</a> 
+						</p>
+					</div>
+					<div class="col-md-3 column">
+						<h4> Kathy Sun </h4>
+						<p>
+							<img alt="" src="./pictures/KathySun_small.jpeg" height="150"> 
+						</p>
+					</div>
+				</div>
+			</div>
+			
+			<!--INTRODUCTION-->
+			<div class="hrline"> <hr /> </div> <br />
+			<div class="row clearfix">	
+				<h3>Introduction</h3>	
+				<p>
+					We all know robots exist for the sole purpose of our entertainment, not to make our lives easier in any way. Only joking, the goal of our project is not only to entertain you with ping pong tricks, but to demonstrate the precision and real-time control achievable in off-the-shelf robotic arms today. We want to explore the possibilities and determine the limitations of what a 6-DOF robot, like the Kuka, can do when equipped with an optical sensor, such as the Kinect or Optitrack.
+					<br /><br />
+					It will require quick response time as well as accurate position and velocity sensing of the ball as demonstrated here by a human.
+				</p>
+				<iframe width="560" height="315" src="http://www.youtube.com/embed/W-m-fI52zYA" frameborder="0" allowfullscreen></iframe>
+			</div>	
+
+			<!--Theory-->
+			<div class="hrline"> <hr /> </div> <br />
+			<div class="row clearfix">	
+				<h3>Theory</h3>	
+					<img alt="" src="./pictures/theory1.png" width="50%">
+					<br />
+					<img alt="" src="./pictures/theory2.png" width="50%">
+			</div>	
+			
+			<!--SIMULATED RESULTS-->
+			<div class="hrline"> <hr /> </div> <br />
+			<div class="row clearfix">	
+				<h3>Simulated Results</h3>
+				<h4>Optical Sensing Progress (Motion Tracking System & Computer Vision)</h4>
+				<ul>
+					<li><b>Motion Tracking Attempt #1. </b> Attempted to use motion-capture system, Optitrack for optical sensing due to speed and accuracy concerns of Kinect. Tried coloring ball with silver nail polish and reflective paint -> Optitrack could not pick up. Need to paint ball with retroreflective coating. Reflective paint has some, but not enough as shown in the picture of the ball versus the optical marker under normal light and flash.
+					<br />
+					<img alt="" src="./pictures/noflash.jpg" height="200"><img alt="" src="./pictures/flash.jpg" height="200">
+					<br /><br /></li>
+					<li> <b>Computer Vision. </b> Successfully tracked colored ball with RGB image and depth map from Kinect using OpenCV and OpenNI.
+						<br />
+						<img alt="" src="./pictures/visionflow.png" width="50%">
+						<br />
+						Below is a demo of the controller in response to the ball tracked by the Kinect. As you can see, it follows the ball and tries to hit it when it comes close enough on the z-axis. The blue circle is measurement found from the thresholded image (bottom center) and the red is the position after the Kalman Filter. The bottom left shows the trajectory of the ball in 2D space and the graph on the top right shows position and velocity over time along each axis. The bottom right is the 3D point cloud.
+						<br /><br />	
+						<iframe width="420" height="315" src="http://www.youtube.com/embed/zOptJ7mzllg" frameborder="0" allowfullscreen></iframe>
+						<br /><br />
+					</li>
+					<li><b>Motion Tracking Attempt #2. </b> Returned to Optitrack approach using a bunch of retroreflective stickers on a ping pong ball. Optitrack recognized it as one untracked marker as opposed to a rigid body, which needs three points to define. This meant no other untracked markers could be in the workspace or the system would track the wrong marker and the robot would follow the wrong point. Sampled and averaged ten points each timestep for better accuracy.
+					<br />
+					</li>
+				</ul>	
+				<h4>Robotic Arm Control Progress</h4>
+					<ul>
+					<li><b>Modeled Control Algorithm in Matlab. </b> Added Air drag and Magnus force to model of ball trajectory. Added AWGN noise to ball position in simulation.
+						<br />
+					Below is a plot with and without simulated noise of the ball along the z-axis in red and the desired position of the Kuka end-effector in blue. You can see little bumps in the z-axis for our controller where the ball meets the paddle. Also notice since we are plotting desired position and not the actual position of the Kuka end-effector, it moves in steps, where the estimated point of impact remains relatively stable over time.
+					<br />
+					<img alt="" src="./pictures/des_vs_ball+noise.png" height="350"><img alt="" src="./pictures/des_vs_ball.png" height="350">
+					<br />
+					Below is the estimated trajectory at each timestep of the simulation. As time progresses, the curve moves closer to t = 0 and time of impact gets closer. The red line is the threshold plane along the z-axis we want to hit the ball at.
+					<br />
+					<img alt="" src="./pictures/estimate.png" height="300">
+					</li>
+					<br /><br />
+					<li><b>Implemented Operational Space Control (Position & Orientation Controllers) in SCL simulation. </b> Used Kuka LWR Model for simulation, but will use <strikethrough>Kuka IIWA</strikethrough> Puma 500 in the Experiment Phase.
+					<br /><br />
+					Below are demos of the orientation controller by implementing the above equtions.
+					<br />
+						<iframe width="420" height="315" src="http://www.youtube.com/embed/pyfSHNkvjZs" frameborder="0" allowfullscreen></iframe>
+						<iframe width="420" height="315" src="http://www.youtube.com/embed/xMykf4SVfbI" frameborder="0" allowfullscreen></iframe>
+					<br />
+					</li>
+
+					<li><b>Implemented Controllers in SCL simulation (Control Logic of Juggling Ping Pong ball). </b> Used Kuka LWR / Puma 500 Model for simulation.<strikethrough></strikethrough>
+					<br /><br />
+					Below are demos of Kuka/Puma juggling ping pong ball.
+					<br />
+						<iframe width="420" height="315" src="http://www.youtube.com/embed/hWwRq6xXgT4" frameborder="0" allowfullscreen></iframe>
+						<iframe width="420" height="315" src="http://www.youtube.com/embed/HoE3u2QjnE4" frameborder="0" allowfullscreen></iframe>
+					<br />
+					</li>
+
+				</ul>
+
+			</div>
+			
+			<!--EXPERIMENTAL RESULTS-->
+			<div class="hrline"> <hr /> </div>
+			<div class="row clearfix">	
+				<h3>Experimental Results</h3>
+				<h4> Predefined Manual Control </h4>
+				<ul>
+				<li>
+					Due to Kuka IIWA popularity and necessity of an orientation controller, we decided to change to the Puma for experimentation. First, we manually control the robot to juggle the ball by setting the paddle to be flat and jolting up and down to hit the ball.
+					<br /><br />
+					<iframe width="420" height="315" src="http://www.youtube.com/embed/_mm6W-3y5D8" frameborder="0" allowfullscreen></iframe>
+					<iframe width="420" height="315" src="http://www.youtube.com/embed/xeSIn47PaZE" frameborder="0" allowfullscreen></iframe>
+					<br /><br />
+					 Integrating experiment with computer vision is not accurate enough to get correct position of ball. Otherwise, the communication between Kinect and Puma Client and SCL (these three programs are combined by multi-threading) is not fast enough for doing the tricks we want.
+				</li>
+				</ul>
+				
+				<h4>Integrating experiment with Motion Tracking System</h4>
+				<ul>
+				<li>
+					We first wrote program for making robot end-effector to follow the ping pong ball (plane tracking). Integrating experiment with motion tracking system to get position of ball is more accurate than computer vision.
+					<br /><br />
+					<iframe width="420" height="315" src="http://www.youtube.com/embed/GJ-3HNNzmPY" frameborder="0" allowfullscreen></iframe>
+					<br /><br />
+				</li>	
+				<li><b>Trying to bounce ping pong ball</b> Implementing control logic in experiment.
+					<br /><br />
+					<iframe width="420" height="315" src="http://www.youtube.com/embed/e4bT0uuWbm0" frameborder="0" allowfullscreen></iframe>
+					<br /><br />
+					 Integrating experiment with motion tracking system to get position of ball is still not fast enough for robot to juggle ping pong ball. The communication between every hardware and software causes a delay for robot to hit the ping pong ball.
+					<br /> <br />
+				</li>
+				<li>
+				<b>Interesting Video of Puma</b> The Puma 500 tries to keep ping pong ball on the paddle.
+					<br />
+						<iframe width="420" height="315" src="http://www.youtube.com/embed/M7gBCA1fevY" frameborder="0" allowfullscreen></iframe>
+					<br /><br />
+				</li>
+				</ul>
+			</div>
+
+			<!--CONCLUSION-->
+			<div class="hrline"> <hr /> </div> <br />
+			<div class="row clearfix">	
+				<h3>Conclusion</h3>	
+				<p>
+					The communication between every hardware and software is not fast enough to make robot juggle ping pong ball. Delay of time always exists in the system. Operational space control is good enough to make robot move to the desired position we want. In addition, the robot is also mechanically capable of juggling ping pong if we place a ball right on the paddle. In order to finish the task, smaller and more agile robot arm would be more suitable by using Puma. 
+				</p>
+			</div>	
+			<div class="row clearfix">	
+				<h5>Animation of Kuka juggling ping pong ball</h5>	
+				<p>
+					<iframe width="420" height="315" src="http://www.youtube.com/embed/vSTld1jgjNA" frameborder="0" allowfullscreen></iframe>
+				</p>
+				<br /> <br />
+				<h5> Source Code </h5>  Can be found on <a href=https://github.com/ksun/CS225A.git> Git </a>
+			</div>	
+
+			<!--REFERENCES-->
+			<div class="hrline"> <hr /> </div> <br />
+
+			<div class="row clearfix">	
+				<h3>References</h3>	
+				<!--REFERENCE 1-->
+				O. Khatib and K. Kolarov,
+				"Introduction to Robotics"
+				<i>, Lecture Notes, CS223A,</i>, Winter 2013-2014.
+				<br /><br />
+				<!--REFERENCE 2-->
+				H. Rapp,
+				<a href="http://sirver.net/media/pubs/rapp_pingpong_icara2011.pdf">"A Ping-Pong Ball Catching and Juggling Robot: a Real-Time Framework for Vision Guided Acting of an Industrial Robot Arm"</a>
+				<i>, Automation, Robotics and Applications (ICARA)</i>, Wellington, December 2011.
+				<br /><br />
+				<!--REFERENCE 3-->
+				J. Nakanishi,
+				<a href="http://www-clmc.usc.edu/~nakanisi/Papers/nakanishi_ijrr2008.pdf">"Operational Space Control: A Theoretical and Empirical Comparison"</a>
+				<i>, The International Journal of Robot Research</i>, June 2008.
+				<br /><br />
+				<!--REFERENCE 5-->
+				<a href="http://www.lirtex.com/robotics/fast-object-tracking-robot-computer-vision/"> "Fast Object Sensing - Robot Computer Vision" </a>  <i>Lirtex – Technology on the Edge of Time</i>, September, 2010.
+				<br /><br />
+			</div>	
+
+		</div>
+	</div>
+	<br />
+	
+	<!-- FOOTER -->
+	<div class="hrline"> <hr /> </div> <br />			
+	<div class="row clearfix">
+		<div class="col-md-3 column">
+		</div>
+		<div class="col-md-6 column">
+				<div class = "text-center">			
+					<p>
+					   &nbsp;&nbsp;&nbsp; Designed by Samir Menon. <br />
+						&nbsp;&nbsp;&nbsp; &#169; Stanford University. <br />
+						&nbsp;&nbsp;&nbsp; Last updated on September 18th, 2014
+					</p>
+				</div>
+		</div>
+		<div class="col-md-3 column">
+		</div>
+	</div>
+	<br />
+	<br />
+	<br />
+	<!-- END OF DOCUMENT -->
+</div>
+</body>
+</html>
